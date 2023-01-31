@@ -46,3 +46,14 @@ dependencyResolutionManagement {
 rootProject.name = "Composite Build POC"
 include(":app")
 
+val ftLocalizations = "../Facetune-Localization"
+val isLocal: String by settings
+if (file(ftLocalizations).exists() && isLocal.toBoolean()) {
+    includeBuild(ftLocalizations) {
+        dependencySubstitution {
+            substitute(module("com.lightricks:facetune_localization"))
+                .using(project(":Android"))
+                .because("Project property override(isLocal).")
+        }
+    }
+}

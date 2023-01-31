@@ -9,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val textView = findViewById<TextView>(R.id.testTV)
-        textView.setText(com.lightricks.facetune.strings.R.string.feature_reshape)
+        textView.setText(com.lightricks.facetune.strings.R.string.composite_test)
     }
 }
