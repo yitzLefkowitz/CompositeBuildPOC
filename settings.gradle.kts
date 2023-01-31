@@ -1,4 +1,12 @@
 pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     fun ExtraPropertiesExtension.getOrElse(key: String, defaultProvider: () -> String): String {
         return runCatching { get(key)!!.toString() }.getOrElse { defaultProvider() }
     }
@@ -20,7 +28,6 @@ pluginManagement {
     }
 
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
         maven {
@@ -34,13 +41,6 @@ pluginManagement {
                 create<HttpHeaderAuthentication>("header")
             }
         }
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
     }
 }
 rootProject.name = "Composite Build POC"
